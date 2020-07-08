@@ -1,0 +1,26 @@
+{
+  "name": "js-framework-benchmark-grain",
+  "version": "1.0.0",
+  "description": "Grain demo",
+  "main": "index.js",
+  "js-framework-benchmark": {
+    "frameworkVersion": "0.4.0"
+  },
+  "scripts": {
+    "spago": "spago",
+    "clean": "rm -rf output",
+    "build-prod": "spago bundle-app -t dist/bundle.js && terser --compress --mangle --enclose --output=dist/main.js -- dist/bundle.js"
+  },
+  "author": "Shinya Takahashi <s.takahashi313@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/krausest/js-framework-benchmark",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krausest/js-framework-benchmark.git"
+  },
+  "dependencies": {
+    "purescript": "^0.13.8",
+    "spago": "^0.15.3",
+    "terser": "^4.8.0"
+  }
+}

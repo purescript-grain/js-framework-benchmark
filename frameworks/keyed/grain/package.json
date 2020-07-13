@@ -4,7 +4,7 @@
   "description": "Grain demo",
   "main": "index.js",
   "js-framework-benchmark": {
-    "frameworkVersion": "0.5.0"
+    "frameworkVersion": "0.7.0"
   },
   "scripts": {
     "spago": "spago",

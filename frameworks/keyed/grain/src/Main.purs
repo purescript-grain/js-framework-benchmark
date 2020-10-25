@@ -38,13 +38,10 @@ view =
 
 jumbotronView :: VNode
 jumbotronView = H.component do
-  find <- useFinder
-  update <- useUpdater
+  findState <- useFinder (GProxy :: _ State)
+  updateState <- useUpdater (GProxy :: _ State)
 
-  let findState = find (GProxy :: _ State)
-      updateState = update (GProxy :: _ State)
-
-      run_ count = do
+  let run_ count = do
         State s <- findState
         state <- addRows count $ State s { rows = [], selectedId = 0 }
         updateState \_ -> state
@@ -104,10 +101,9 @@ jumbotronView = H.component do
 rowsView :: VNode
 rowsView = H.component do
   State { rows, selectedId } <- useValue (GProxy :: _ State)
-  update <- useUpdater
+  updateState <- useUpdater (GProxy :: _ State)
 
-  let updateState = update (GProxy :: _ State)
-      select row = updateState $ over State _ { selectedId = row.id }
+  let select row = updateState $ over State _ { selectedId = row.id }
       remove row = updateState $ over State \s -> s
                       { rows = delete row s.rows
                       }

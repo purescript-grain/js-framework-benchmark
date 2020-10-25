@@ -123,7 +123,7 @@ let upstream =
 
 let overrides =
       { grain =
-          upstream.grain // { dependencies = [ "web-html" ], version = "v0.7.0" }
+          upstream.grain // { dependencies = [ "web-html" ], version = "v1.0.0" }
       }
 
 let additions = {=}
